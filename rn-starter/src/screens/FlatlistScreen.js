@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, FlatList } from "react-native";
+import { View, Text, FlatList, StyleSheet } from "react-native";
 
 const FlatlistScreen = () => {
   const friends = [
@@ -43,14 +43,22 @@ const FlatlistScreen = () => {
   return (
     <View>
       <FlatList
-        keyExtractor={(item) => item.id}
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        keyExtractor={(friend) => friend.id}
         data={friends}
         renderItem={({ item: { name } }) => {
-          return <Text>{name}</Text>;
+          return <Text style={styles.flatlistText}>{name}</Text>;
         }}
       />
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  flatlistText: {
+    marginVertical: 50,
+  },
+});
 
 export default FlatlistScreen;
