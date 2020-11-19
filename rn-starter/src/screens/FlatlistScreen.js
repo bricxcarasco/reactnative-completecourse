@@ -43,8 +43,6 @@ const FlatlistScreen = () => {
   return (
     <View>
       <FlatList
-        horizontal
-        showsHorizontalScrollIndicator={false}
         keyExtractor={(friend) => friend.id}
         data={friends}
         renderItem={({ item: { name } }) => {
