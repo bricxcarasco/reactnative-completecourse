@@ -2,7 +2,6 @@ import React from "react";
 import { StyleSheet, View, Text, Image } from "react-native";
 
 const ImageDetail = ({ imageDetail: { title, image, score } }) => {
-  console.log(image);
   return (
     <View>
       <Image source={image} />
