@@ -5,39 +5,38 @@ const FlatlistScreen = () => {
   const friends = [
     {
       id: Math.floor(Math.random() * 1000000000).toString(),
-      name: "Friend #1",
+      name: "Person #1",
+      age: 21,
     },
     {
       id: Math.floor(Math.random() * 1000000000).toString(),
-      name: "Friend #2",
+      name: "Person #2",
+      age: 22,
     },
     {
       id: Math.floor(Math.random() * 1000000000).toString(),
-      name: "Friend #3",
+      name: "Person #3",
+      age: 23,
     },
     {
       id: Math.floor(Math.random() * 1000000000).toString(),
-      name: "Friend #4",
+      name: "Person #4",
+      age: 24,
     },
     {
       id: Math.floor(Math.random() * 1000000000).toString(),
-      name: "Friend #5",
+      name: "Person #5",
+      age: 25,
     },
     {
       id: Math.floor(Math.random() * 1000000000).toString(),
-      name: "Friend #6",
+      name: "Person #6",
+      age: 26,
     },
     {
       id: Math.floor(Math.random() * 1000000000).toString(),
-      name: "Friend #7",
-    },
-    {
-      id: Math.floor(Math.random() * 1000000000).toString(),
-      name: "Friend #8",
-    },
-    {
-      id: Math.floor(Math.random() * 1000000000).toString(),
-      name: "Friend #9",
+      name: "Person #7",
+      age: 27,
     },
   ];
   return (
@@ -45,8 +44,12 @@ const FlatlistScreen = () => {
       <FlatList
         keyExtractor={(friend) => friend.id}
         data={friends}
-        renderItem={({ item: { name } }) => {
-          return <Text style={styles.flatlistText}>{name}</Text>;
+        renderItem={({ item: { name, age } }) => {
+          return (
+            <Text style={styles.flatlistText}>
+              {name} - Age {age}
+            </Text>
+          );
         }}
       />
     </View>
