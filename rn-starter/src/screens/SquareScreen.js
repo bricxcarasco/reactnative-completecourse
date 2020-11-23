@@ -1,6 +1,5 @@
 import React, { useReducer } from "react";
-import { Alert } from "react-native";
-import { StyleSheet, View, Text, Alsert } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
 
 import ColorCounter from "../components/ColorCounter";
@@ -18,15 +17,15 @@ const SquareScreen = () => {
 
   const moreColorHandler = (color) => {
     dispatch({
-      colorToChange: color.toLowerCase(),
-      amount: COLOR_INCREMENT,
+      type: color.toLowerCase(),
+      payload: COLOR_INCREMENT,
     });
   };
 
   const lessColorHandler = (color) => {
     dispatch({
-      colorToChange: color.toLowerCase(),
-      amount: -1 * COLOR_INCREMENT,
+      type: color.toLowerCase(),
+      payload: -1 * COLOR_INCREMENT,
     });
   };
 
