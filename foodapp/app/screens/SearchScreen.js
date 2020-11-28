@@ -1,10 +1,14 @@
 import React from "react";
 import { StyleSheet, View, Text } from "react-native";
+import RestaurantList from "../components/RestaurantList";
+
+import SearchBar from "../components/SearchBar";
 
 const SearchScreen = () => {
   return (
     <View>
-      <Text>Search Screen</Text>
+      <SearchBar />
+      <RestaurantList />
     </View>
   );
 };
