@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View, Text, ScrollView } from "react-native";
 
 import useRestaurants from "../hooks/useRestaurants";
 
@@ -17,30 +17,35 @@ const SearchScreen = () => {
   };
 
   return (
-    <View>
+    <View style={styles.container}>
       <SearchBar
         term={term}
         onTerm={onTerm}
         onTermSubmit={() => searchApi(term)}
       />
       {errorMessage ? <Text>{errorMessage}</Text> : null}
-      <Text>We have found {restaurants.length} restaurants.</Text>
-      <RestaurantList
-        title="Cost Effective"
-        restaurants={filterRestaurantsByPrice("$")}
-      />
-      <RestaurantList
-        title="Bit Pricier"
-        restaurants={filterRestaurantsByPrice("$$")}
-      />
-      <RestaurantList
-        title="Big Spender"
-        restaurants={filterRestaurantsByPrice("$$$")}
-      />
+      <ScrollView>
+        <RestaurantList
+          title="Cost Effective"
+          restaurants={filterRestaurantsByPrice("$")}
+        />
+        <RestaurantList
+          title="Bit Pricier"
+          restaurants={filterRestaurantsByPrice("$$")}
+        />
+        <RestaurantList
+          title="Big Spender"
+          restaurants={filterRestaurantsByPrice("$$$")}
+        />
+      </ScrollView>
     </View>
   );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});
 
 export default SearchScreen;

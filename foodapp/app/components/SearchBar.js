@@ -29,7 +29,8 @@ const styles = StyleSheet.create({
     height: 50,
     borderRadius: 5,
     marginTop: 15,
-    marginHorizontal: 15,
+    marginBottom: 10,
+    marginHorizontal: 10,
     flexDirection: "row",
   },
   iconSearch: {
