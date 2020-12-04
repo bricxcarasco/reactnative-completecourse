@@ -5,8 +5,12 @@ import { Context } from "../context/BlogContext";
 
 import BlogList from "../components/BlogList";
 
-const IndexScreen = () => {
+const IndexScreen = ({ navigation }) => {
   const { state, addBlogPost } = useContext(Context);
+
+  const goToShowScreen = (blogPost) => {
+    navigation.navigate("Show", blogPost);
+  };
 
   return (
     <View>
@@ -15,7 +19,7 @@ const IndexScreen = () => {
         keyExtractor={(blogPost) => blogPost.id}
         data={state}
         renderItem={({ item }) => {
-          return <BlogList blogPost={item} />;
+          return <BlogList goToShowScreen={goToShowScreen} blogPost={item} />;
         }}
       />
     </View>

@@ -4,12 +4,14 @@ import { Feather } from "@expo/vector-icons";
 
 import { Context } from "../context/BlogContext";
 
-const BlogList = ({ blogPost }) => {
+const BlogList = ({ blogPost, goToShowScreen }) => {
   const { deleteBlogPost } = useContext(Context);
 
   return (
     <View style={styles.viewContainerBlogList}>
-      <Text style={styles.textTitle}>{blogPost.title}</Text>
+      <TouchableOpacity onPress={() => goToShowScreen(blogPost)}>
+        <Text style={styles.textTitle}>{blogPost.title}</Text>
+      </TouchableOpacity>
       <TouchableOpacity onPress={() => deleteBlogPost(blogPost.id)}>
         <Feather style={styles.iconDelete} name="trash-2" size={18} />
       </TouchableOpacity>
