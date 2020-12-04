@@ -8,8 +8,8 @@ import BlogList from "../components/BlogList";
 const IndexScreen = ({ navigation }) => {
   const { state, addBlogPost } = useContext(Context);
 
-  const goToShowScreen = (blogPost) => {
-    navigation.navigate("Show", blogPost);
+  const goToShowScreen = (id) => {
+    navigation.navigate("Show", { id });
   };
 
   return (
